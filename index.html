@@ -17,8 +17,8 @@
         }
 
         function addBudget() {
-            const budgetName = document.getElementById("budgetName").value;
-            const budget = Number(document.getElementById("budgetValue").value);
+            const budgetName = document.getElementById('budgetName').value;
+            const budget = Number(document.getElementById('budgetValue').value);
 
             const id = (storage.length || 0) + 1;
 
@@ -53,7 +53,7 @@
             document.getElementById('budgetItems').appendChild(item);
 
             // add to the select dropdown
-            const budgetSelect = document.getElementById("budget-select");
+            const budgetSelect = document.getElementById('budget-select');
 
             const option = document.createElement('option');
             option.text = name;
@@ -114,7 +114,6 @@
             padding: 0;
             box-sizing: border-box;
             color: #dadada;
-
         }
 
         body {
@@ -144,17 +143,11 @@
             margin: 0 0 10px 0;
         }
 
-        /* Styling the determinate progress element */
 
         progress[value] {
-            /* This unfortunately leaves a trail of border behind in Firefox and Opera. We can remove that by setting the border to none. */
             border: none;
-
-            /* Add dimensions */
             width: 100%;
             height: 40px;
-
-            /* Although firefox doesn't provide any additional pseudo class to style the progress element container, any style applied here works on the container. */
             background-color: whiteSmoke;
             border-radius: 3px;
             box-shadow: 0 2px 3px rgba(0, 0, 0, .5) inset;
@@ -163,8 +156,13 @@
             margin: 0 0 1.5em;
         }
 
-        progress::-moz-progress-bar { background: #7D4E57; }
-        progress::-webkit-progress-value { background: #7D4E57; }
+        progress::-moz-progress-bar {
+            background: #7D4E57;
+        }
+
+        progress::-webkit-progress-value {
+            background: #7D4E57;
+        }
 
         .budget-item {
             margin: 10px 0;
@@ -182,19 +180,19 @@
     <h1>Budgets List</h1>
 
     <section id="budgetItems">
-        
+
     </section>
 
     <section>
         <h2>Update budget</h2>
         <div>
-            <label for="budget-select">Budget</label><br/>
+            <label for="budget-select">Budget</label><br />
             <select name="budget-select" id="budget-select" required>
                 <option value="">Select a budget</option>
             </select>
         </div>
         <div>
-            <label for="spent">Spent</label><br/>
+            <label for="spent">Spent</label><br />
             <input type="number" id="spent" name="spent" />
             <button onclick="updateBudget()">Submit</button>
         </div>
@@ -204,7 +202,6 @@
             <button onclick="deleteBudget()">Delete budget</button>
         </div>
     </section>
-
 
     <section>
         <h2>Add new budget</h2>
