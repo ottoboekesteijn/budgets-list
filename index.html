@@ -246,18 +246,17 @@
 
     <section>
         <h2>Update budget</h2>
-        <div>
-            <label for="budget-select">Budget</label><br/>
-            <select name="budget-select" id="budget-select">
-                <option value="">Select a budget</option>
-            </select>
-        </div>
-
-
-        <div>
+        <div style="float: right;">
             <label for="spent">Spent</label><br/>
             <input type="number" id="spent" name="spent" placeholder="0" />
             <button onclick="updateBudget()">Submit</button>
+        </div>
+
+        <div>
+            <label for="budget-select">Budget</label><br/>
+            <select name="budget-select" id="budget-select" required>
+                <option value="">Select a budget</option>
+            </select>
         </div>
 
         <div>
