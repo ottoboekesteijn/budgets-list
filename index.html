@@ -76,7 +76,7 @@
 
                 updateProgressbar(selectedBudget, spent);
 
-                storage.find(budget => budget.id === selectedBudget).spent = newValue;
+                storage.find(budget => budget.id === selectedBudget).spent += spent;
                 saveToLocalStorage();
             }
         }
