@@ -36,6 +36,7 @@
         }
 
         function renderBudget(id, name, budget, spent) {
+            spent = parseFloat(spent).toFixed(2);
             const item = document.createElement('div');
             item.class = 'budget-item';
             item.id = `budget-item-${id}`;
@@ -69,14 +70,14 @@
 
             document.getElementById(`progress-${id}`).value = newValue;
             const label = document.getElementById(`label-${id}`);
-            label.innerText = label.innerText.replace(new RegExp('\\d+ of'), `${newValue} of`);
+            label.innerText = label.innerText.replace(new RegExp('\\d\*\.\\d+ of'), `${twoDigitRound(newValue)} of`);
         }
 
         function updateBudget() {
             const selectedBudget = Number(document.getElementById('budget-select').value);
 
             if (selectedBudget) {
-                const spent = Number(document.getElementById('spent').value);
+                const spent = twoDigitRound(document.getElementById('spent').value);
 
                 updateProgressbar(selectedBudget, spent);
 
@@ -104,6 +105,10 @@
                 storage.splice(storage.findIndex(x => x.id === selectedBudget), 1);
                 saveToLocalStorage();
             }
+        }
+
+        function twoDigitRound(input) {
+            return Math.round((Number(input) + Number.EPSILON) * 100) / 100;
         }
     </script>
 
